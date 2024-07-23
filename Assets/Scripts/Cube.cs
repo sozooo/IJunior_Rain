@@ -6,12 +6,15 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
 {
-    private Platform _collidedPlataform;
+    [SerializeField] private float _minTimeToPool = 2;
+    [SerializeField] private float _maxTimeToPool = 5;
+
     private Renderer _renderer;
+    private Coroutine _timer;
+
+    public event Action<Cube> Despawn;
 
     public Renderer Renderer => _renderer;
-
-    public event Action<Cube> Collided;
 
     private void Awake()
     {
@@ -22,18 +25,35 @@ public class Cube : MonoBehaviour
     {
         if (collision.collider.TryGetComponent(out Platform platform))
         {
-            if(_collidedPlataform == null)
+            if (_timer == null)
             {
-                _collidedPlataform = platform;
-
                 SetRandomColor();
-                Collided?.Invoke(this);
+                StartTimer();
             }
         }
     }
 
-    public void SetRandomColor()
+    private void OnDisable()
+    {
+        _timer = null;
+    }
+
+    private void SetRandomColor()
     {
         _renderer.material.color = Random.ColorHSV();
+    }
+
+    private void StartTimer()
+    {
+        float timeToPool = Random.Range(_minTimeToPool, _maxTimeToPool + 1);
+
+        _timer = StartCoroutine(Timer(timeToPool));
+    }
+
+    private IEnumerator Timer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Despawn?.Invoke(this);
     }
 }

@@ -729,8 +729,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cubePrefab: {fileID: 4378357947794745045, guid: a41fe77f05270473d9a927461d4be459, type: 3}
-  _minTimeToPool: 2
-  _maxTimeToPool: 5
 --- !u!1 &1885142691
 GameObject:
   m_ObjectHideFlags: 0

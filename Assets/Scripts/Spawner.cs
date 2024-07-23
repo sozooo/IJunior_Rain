@@ -35,10 +35,17 @@ public class Spawner : MonoBehaviour
         transform.position = new Vector3(Random.Range(_minX, _maxX), transform.position.y, Random.Range(_minZ, _maxZ));
 
         Cube cube = _pool.Take();
+
         cube.Renderer.material.color = Color.white;
+        cube.Despawn += Despawn;
         cube.gameObject.SetActive(true);
 
         cube.transform.position = transform.position;
+    }
+
+    private void Despawn(Cube cube)
+    {
+        _pool.Add(cube);
     }
 
     private IEnumerator Timer()
