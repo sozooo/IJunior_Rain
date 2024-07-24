@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 public class Cube : Spawnable
 {
     private void OnCollisionEnter(Collision collision)

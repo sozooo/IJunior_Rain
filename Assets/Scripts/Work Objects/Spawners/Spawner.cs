@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
         return spawnable;
     }
 
-    protected void Despawn(Spawnable spawnable)
+    protected virtual void Despawn(Spawnable spawnable)
     {
         spawnable.Despawn -= Despawn;
 

@@ -7,19 +7,18 @@ public class Explosive : MonoBehaviour
     [SerializeField] private float _explosionForce;
     [SerializeField] private LayerMask _spawnableLayer;
 
-    Vector3 position;
 
-    public void Explode(Bomb bomb)
+    public void Explode(Spawnable spawnable)
     {
-        position = bomb.transform.position;
+        Vector3 position = spawnable.transform.position;
 
-        foreach (Rigidbody body in GetCollidedBodies())
+        foreach (Rigidbody body in GetCollidedBodies(position))
         {
             body.AddExplosionForce(_explosionForce, position, _explosionRange);
         }
     }
 
-    private List<Rigidbody> GetCollidedBodies()
+    private List<Rigidbody> GetCollidedBodies(Vector3 position)
     {
         Collider[] hits = Physics.OverlapSphere(position, _explosionRange, _spawnableLayer);
 
@@ -34,15 +33,5 @@ public class Explosive : MonoBehaviour
         }
 
         return spawnables;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Color gizmosColor = Color.red;
-        gizmosColor.a /= 3;
-
-        Gizmos.color= gizmosColor;
-
-        Gizmos.DrawSphere(position, _explosionRange);
     }
 }

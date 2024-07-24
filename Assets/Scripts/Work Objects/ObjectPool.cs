@@ -15,23 +15,23 @@ public class ObjectPool : MonoBehaviour
         _spawnables = new Queue<Spawnable>();
     }
 
-    public void Add(Spawnable cube)
+    public void Add(Spawnable spawnable)
     {
-        cube.gameObject.SetActive(false);
-        _spawnables.Enqueue(cube);
+        spawnable.gameObject.SetActive(false);
+        _spawnables.Enqueue(spawnable);
     }
 
     public Spawnable Take()
     {
-        Spawnable cube;
+        Spawnable spawnable;
 
         if(_spawnables.Count == 0)
-            cube = Instantiate(_spawnablePrefab);
+            spawnable = Instantiate(_spawnablePrefab);
         else
-            cube = _spawnables.Dequeue();
+            spawnable = _spawnables.Dequeue();
 
         ObjectTaken?.Invoke();
 
-        return cube;
+        return spawnable;
     }
 }

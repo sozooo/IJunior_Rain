@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class BombSpawner : Spawner
 {
@@ -12,15 +11,10 @@ public class BombSpawner : Spawner
         Spawn();
     }
 
-    public override Spawnable Spawn()
+    protected override void Despawn(Spawnable spawnable)
     {
-        Bomb bomb =  base.Spawn() as Bomb;
+        _explosive.Explode(spawnable);
 
-        if(bomb != null)
-        {
-            bomb.Initialize(_explosive);
-        }
-
-        return bomb;
+        base.Despawn(spawnable);
     }
 }

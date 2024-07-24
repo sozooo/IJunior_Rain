@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 1614534358}
   - component: {fileID: 1614534361}
   - component: {fileID: 1614534360}
-  - component: {fileID: 1614534359}
+  - component: {fileID: 1614534362}
   m_Layer: 5
   m_Name: Counter
   m_TagString: Untagged
@@ -2163,19 +2163,6 @@ RectTransform:
   m_AnchoredPosition: {x: 175, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1614534359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614534357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b561a12428944ee9073c055c4136b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 1883464250}
 --- !u!114 &1614534360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,6 +2260,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614534357}
   m_CullTransparentMesh: 1
+--- !u!114 &1614534362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614534357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408c8e78e704048cf9634a950e943460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pool: {fileID: 1883464249}
 --- !u!850595691 &1644360614
 LightingSettings:
   m_ObjectHideFlags: 0
