@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3519242821590521710
+--- !u!1 &6031875359538308992
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3172596152352442917}
-  - component: {fileID: 1177792291326576816}
-  - component: {fileID: 3533283486439794641}
-  - component: {fileID: 762437276008287542}
-  - component: {fileID: 5931016310074625091}
-  - component: {fileID: 4378357947794745045}
+  - component: {fileID: 3118959990540359643}
+  - component: {fileID: 7915349035692723378}
+  - component: {fileID: 5294022597475685008}
+  - component: {fileID: 6596346945617860759}
+  - component: {fileID: 6190903161339340385}
+  - component: {fileID: -1310951206511541954}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3172596152352442917
+--- !u!4 &3118959990540359643
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
+  m_GameObject: {fileID: 6031875359538308992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4663348, y: 15.665552, z: -10.912609}
+  m_LocalPosition: {x: -2.6603332, y: 20.437748, z: -13.86786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1177792291326576816
+--- !u!33 &7915349035692723378
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3533283486439794641
+  m_GameObject: {fileID: 6031875359538308992}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &5294022597475685008
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
+  m_GameObject: {fileID: 6031875359538308992}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &762437276008287542
-BoxCollider:
+--- !u!135 &6596346945617860759
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
+  m_GameObject: {fileID: 6031875359538308992}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -105,15 +105,15 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5931016310074625091
+--- !u!54 &6190903161339340385
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
+  m_GameObject: {fileID: 6031875359538308992}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -134,16 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4378357947794745045
+--- !u!114 &-1310951206511541954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519242821590521710}
+  m_GameObject: {fileID: 6031875359538308992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b5cc4c006d94b718cffdc2ea56dbca, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d02b18ec68024a50a614d10e4eee672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _minTimeToPool: 2
