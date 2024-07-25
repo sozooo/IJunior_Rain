@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectPool))]
 public class Spawner : MonoBehaviour
 {
     [SerializeField] protected Color ObjectColor;
@@ -17,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     public virtual Spawnable Spawn()
     {
-        Spawnable spawnable = Pool.Take();
+        Spawnable spawnable = Pool.Give();
 
         spawnable.Renderer.material.color = ObjectColor;
         spawnable.Despawn += Despawn;

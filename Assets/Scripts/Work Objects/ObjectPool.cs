@@ -21,7 +21,7 @@ public class ObjectPool : MonoBehaviour
         _spawnables.Enqueue(spawnable);
     }
 
-    public Spawnable Take()
+    public Spawnable Give()
     {
         Spawnable spawnable;
 
