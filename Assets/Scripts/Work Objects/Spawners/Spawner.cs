@@ -1,26 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(ObjectPool))]
-public class Spawner : MonoBehaviour
+public class Spawner<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
 {
+    [SerializeField]protected ObjectPool<T> Pool;
     [SerializeField] protected Color ObjectColor;
-
-    protected ObjectPool Pool;
 
     public event Action ObjectSpawned;
     public event Action ObjectDespawned;
 
-    protected void Awake()
+    public virtual T Spawn()
     {
-        Pool = GetComponent<ObjectPool>();
-    }
+        T spawnable = Pool.Give();
 
-    public virtual Spawnable Spawn()
-    {
-        Spawnable spawnable = Pool.Give();
-
-        spawnable.Renderer.material.color = ObjectColor;
         spawnable.Despawn += Despawn;
         spawnable.gameObject.SetActive(true);
 
@@ -31,7 +23,7 @@ public class Spawner : MonoBehaviour
         return spawnable;
     }
 
-    protected virtual void Despawn(Spawnable spawnable)
+    protected virtual void Despawn(T spawnable)
     {
         spawnable.Despawn -= Despawn;
 

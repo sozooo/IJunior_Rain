@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Bomb : Spawnable
+public class Bomb : Spawnable, ISpawnable<Bomb>
 {
+    public event Action<Bomb> Despawn;
+
     private void OnEnable()
     {
         StartTimer();
@@ -28,5 +31,10 @@ public class Bomb : Spawnable
         }
 
         InvokeDespawn();
+    }
+
+    protected override void InvokeDespawn()
+    {
+        Despawn?.Invoke(this);
     }
 }

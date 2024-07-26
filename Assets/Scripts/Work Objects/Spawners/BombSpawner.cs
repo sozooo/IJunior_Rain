@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BombSpawner : Spawner
+public class BombSpawner : Spawner<Bomb>
 {
     [SerializeField] private Explosive _explosive;
 
@@ -8,10 +8,11 @@ public class BombSpawner : Spawner
     {
         transform.position = position;
 
-        Spawn();
+        Bomb bomb = Spawn();
+        bomb.Renderer.material.color = ObjectColor;
     }
 
-    protected override void Despawn(Spawnable spawnable)
+    protected override void Despawn(Bomb spawnable)
     {
         _explosive.Explode(spawnable);
 

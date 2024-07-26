@@ -7,7 +7,6 @@ public class Explosive : MonoBehaviour
     [SerializeField] private float _explosionForce;
     [SerializeField] private LayerMask _spawnableLayer;
 
-
     public void Explode(Spawnable spawnable)
     {
         Vector3 position = spawnable.transform.position;

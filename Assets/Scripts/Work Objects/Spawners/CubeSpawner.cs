@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ObjectPool))]
-public class CubeSpawner : Spawner
+public class CubeSpawner : Spawner<Cube>
 {
     [Header("Positions")]
     [SerializeField] private float _maxX;
@@ -9,10 +8,13 @@ public class CubeSpawner : Spawner
     [SerializeField] private float _maxZ;
     [SerializeField] private float _minZ;
 
-    public override Spawnable Spawn()
+    public override Cube Spawn()
     {
         transform.position = new Vector3(Random.Range(_minX, _maxX), transform.position.y, Random.Range(_minZ, _maxZ));
 
-        return base.Spawn();
+        Cube cube = base.Spawn();
+        cube.Renderer.material.color = ObjectColor;
+
+        return cube;
     }
 }

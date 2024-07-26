@@ -2,28 +2,28 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
 {
-    [SerializeField] private Spawnable _spawnablePrefab;
+    [SerializeField] private T _spawnablePrefab;
 
-    private Queue<Spawnable> _spawnables;
+    private Queue<T> _spawnables;
 
     public event Action ObjectTaken;
 
     private void Awake()
     {
-        _spawnables = new Queue<Spawnable>();
+        _spawnables = new Queue<T>();
     }
 
-    public void Add(Spawnable spawnable)
+    public void Add(T spawnable)
     {
         spawnable.gameObject.SetActive(false);
         _spawnables.Enqueue(spawnable);
     }
 
-    public Spawnable Give()
+    public T Give()
     {
-        Spawnable spawnable;
+        T spawnable;
 
         if(_spawnables.Count == 0)
             spawnable = Instantiate(_spawnablePrefab);

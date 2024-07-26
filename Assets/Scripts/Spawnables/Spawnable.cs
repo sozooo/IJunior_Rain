@@ -1,18 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Renderer), typeof(Rigidbody))]
-public class Spawnable : MonoBehaviour
+public abstract class Spawnable : MonoBehaviour
 {
     [SerializeField] private float _minTimeToPool = 2;
     [SerializeField] private float _maxTimeToPool = 5;
 
     private Renderer _renderer;
     protected Coroutine PoolTimer;
-
-    public event Action<Spawnable> Despawn;
 
     public Renderer Renderer => _renderer;
     public Rigidbody Body { get; private set; }
@@ -40,10 +37,7 @@ public class Spawnable : MonoBehaviour
         PoolTimer = StartCoroutine(Timer(timeToPool));
     }
 
-    protected void InvokeDespawn()
-    {
-        Despawn?.Invoke(this);
-    }
+    protected abstract void InvokeDespawn();
 
     protected virtual IEnumerator Timer(float time)
     {

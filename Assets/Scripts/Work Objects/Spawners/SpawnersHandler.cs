@@ -13,10 +13,10 @@ public class SpawnersHandler : MonoBehaviour
         StartCoroutine(Timer());
     }
 
-    private void SpawnBomb(Spawnable spawnable)
+    private void SpawnBomb(Cube cube)
     {
-        spawnable.Despawn -= SpawnBomb;
-        _bombSpawner.PositionSpawn(spawnable.transform.position);
+        cube.Despawn -= SpawnBomb;
+        _bombSpawner.PositionSpawn(cube.transform.position);
     }
 
     private IEnumerator Timer()

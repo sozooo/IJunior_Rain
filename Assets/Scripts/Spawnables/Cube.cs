@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class Cube : Spawnable
+public class Cube : Spawnable, ISpawnable<Cube>
 {
+    public event System.Action<Cube> Despawn;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.TryGetComponent(out Platform platform))
@@ -12,5 +14,10 @@ public class Cube : Spawnable
                 StartTimer();
             }
         }
+    }
+
+    protected override void InvokeDespawn()
+    {
+        Despawn?.Invoke(this);
     }
 }

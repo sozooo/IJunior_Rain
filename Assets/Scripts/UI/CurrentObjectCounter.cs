@@ -2,9 +2,9 @@ using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class CurrentObjectCounter : MonoBehaviour
+public class CurrentObjectCounter<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
 {
-    [SerializeField] private Spawner _spawner;
+    [SerializeField] private Spawner<T> _spawner;
 
     private TextMeshProUGUI _text;
     private int _currentCount = 0;
